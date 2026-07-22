@@ -73,6 +73,7 @@ const detailContent = document.querySelector("#detail-content");
 const halo = document.querySelector("#selection-halo");
 const viewport = document.querySelector("#map-viewport");
 const world = document.querySelector("#map-world");
+const artWorld = document.querySelector("#map-art-world");
 let selectedId = null;
 let mapState = {scale:1,x:0,y:0};
 let drag = null;
@@ -181,7 +182,7 @@ function focusWard(ward){
   const targetScale=Math.max(mapState.scale,1.12);
   mapState.scale=targetScale;
   mapState.x=-(ward.x-50)/100*baseWidth*targetScale;
-  mapState.y=-(ward.y-50)/100*baseHeight*targetScale-75;
+  mapState.y=-(ward.y-45.85)/100*baseHeight*targetScale-75;
   applyMapTransform();
 }
 
@@ -206,7 +207,11 @@ function openSidebar(){sidebar.classList.remove("collapsed");sidebar.classList.a
 function closeSidebar(){if(isMobile()){sidebar.classList.remove("active");overlay.classList.remove("active")}}
 function collapseSidebar(){if(isMobile()){closeSidebar()}else{sidebar.classList.add("collapsed")}}
 function expandSidebar(){sidebar.classList.remove("collapsed");if(isMobile()){sidebar.classList.add("active");overlay.classList.add("active")}}
-function applyMapTransform(){world.style.transform=`translate(calc(-50% + ${mapState.x}px),calc(-50% + ${mapState.y}px)) scale(${mapState.scale})`}
+function applyMapTransform(){
+  const transform=`translate(calc(-50% + ${mapState.x}px),calc(-45.85% + ${mapState.y}px)) scale(${mapState.scale})`;
+  world.style.transform=transform;
+  artWorld.style.transform=transform;
+}
 function clampScale(value){return Math.min(2.6,Math.max(.82,value))}
 
 document.addEventListener("click",(event)=>{const target=event.target.closest("[data-ward]");if(target) chooseWard(target.dataset.ward)});
