@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
     <meta name="theme-color" content="#111315">
-    <meta name="description" content="Bản đồ số 16 tổ dân phố phường Phượng Sơn, tỉnh Bắc Ninh.">
+    <meta name="description" content="Bản đồ số phương án dự kiến 16 tổ dân phố phường Phượng Sơn, tỉnh Bắc Ninh.">
     <title>Bản đồ số phường Phượng Sơn</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
@@ -12,7 +12,7 @@
     <header class="masthead">
       <div class="masthead-inner">
         <a class="wordmark" href="./" aria-label="Bản đồ số phường Phượng Sơn">Phượng Sơn</a>
-        <div class="masthead-slogan">Chuyên trang bản đồ số 16 tổ dân phố phường Phượng Sơn</div>
+        <div class="masthead-slogan">Chuyên trang bản đồ số phường Phượng Sơn</div>
       </div>
     </header>
 
@@ -39,9 +39,15 @@
         </div>
 
         <div class="city-info">
-          <div class="city-info-item"><span>Diện tích:</span><strong>78,84 km²</strong></div>
-          <div class="city-info-item"><span>Dân số:</span><strong>41.365 người</strong></div>
-          <div class="city-info-item"><span>Đơn vị:</span><strong>16 tổ dân phố</strong></div>
+          <div class="city-info-item"><span>Diện tích:</span><strong>78,74 km²</strong></div>
+          <div class="city-info-item"><span>Dân số:</span><strong>41.342 người</strong></div>
+          <div class="city-info-item"><span>Hiện trạng:</span><strong>49 tổ dân phố</strong></div>
+          <div class="city-info-item"><span>Phương án:</span><strong>16 tổ dân phố</strong></div>
+        </div>
+
+        <div class="draft-note">
+          <strong>PHƯƠNG ÁN DỰ KIẾN</strong>
+          <span>16 TDP đang trong quá trình sắp xếp, lấy ý kiến và hoàn thiện hồ sơ.</span>
         </div>
 
         <div class="search-section">
@@ -56,6 +62,7 @@
           <img class="map-art" src="./map-phuong-son.png" alt="Sơ đồ 16 tổ dân phố phường Phượng Sơn" draggable="false">
           <div class="selection-halo" id="selection-halo" aria-hidden="true"></div>
           <div class="map-labels" id="map-labels"></div>
+          <div class="map-points" id="map-points"></div>
         </div>
       </section>
 
@@ -65,6 +72,9 @@
         </button>
         <button class="map-tool labels-on" id="labels-toggle" type="button" title="Hiển thị hoặc ẩn tên TDP" aria-pressed="true">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+        </button>
+        <button class="map-tool poi-on" id="poi-toggle" type="button" title="Hiển thị hoặc ẩn nhà văn hóa, điểm công cộng" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M6 21V9l6-4 6 4v12M9 21v-6h6v6M8 11h2M14 11h2"></path></svg>
         </button>
       </div>
 
@@ -78,7 +88,8 @@
         <div class="detail-content" id="detail-content"></div>
       </aside>
 
-      <div class="map-credit">PHƯỜNG PHƯỢNG SƠN · BẢN ĐỒ THÔNG TIN CỘNG ĐỒNG</div>
+      <div class="map-legend"><span><i class="legend-house"></i> Nhà văn hóa đã đối chiếu</span><span><i class="legend-public"></i> Điểm công cộng</span></div>
+      <div class="map-credit">PHƯỜNG PHƯỢNG SƠN · DỮ LIỆU DỰ KIẾN · CẬP NHẬT 22/07/2026</div>
     </main>
     <script src="./app.js"></script>
   </body>
