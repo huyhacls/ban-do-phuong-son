@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bản đồ tra cứu thông tin 16 tổ dân phố phường Phượng Sơn, tỉnh Bắc Ninh.">
+    <title>Bản đồ số phường Phượng Sơn</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div class="brand-mark" aria-hidden="true">PS</div>
+        <div>
+          <p class="eyebrow">PHƯỜNG PHƯỢNG SƠN · TỈNH BẮC NINH</p>
+          <h1>Bản đồ số 16 tổ dân phố</h1>
+        </div>
+        <div class="status"><span></span>Dữ liệu đang hoàn thiện</div>
+      </header>
+
+      <section class="workspace">
+        <aside class="sidebar" id="sidebar">
+          <div class="side-heading">
+            <div><strong>Danh sách tổ dân phố</strong><small>Chọn một tổ để xem thông tin</small></div>
+            <button class="close-list" id="close-list" type="button" aria-label="Đóng danh sách">×</button>
+          </div>
+          <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm TDP cũ hoặc mới…" aria-label="Tìm tổ dân phố"></label>
+          <div class="ward-list" id="ward-list"></div>
+        </aside>
+
+        <div class="map-column">
+          <div class="mobile-actions"><button id="open-list" type="button">☰ Danh sách 16 TDP</button><span>Chạm tên trên bản đồ để xem</span></div>
+          <div class="map-card">
+            <div class="map-caption"><div><b>Bản đồ địa giới dự kiến sau sắp xếp</b><span>Sơ đồ tương đối, không dùng để xác định ranh giới đất đai</span></div><span class="north">B ↑</span></div>
+            <div class="map-stage">
+              <img src="./map-phuong-son.png" alt="Bản đồ 16 tổ dân phố phường Phượng Sơn">
+              <div id="map-labels"></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="detail-card" id="detail-card" aria-live="polite"></aside>
+      </section>
+      <footer>© 2026 Phường Phượng Sơn · Bản đồ thông tin cộng đồng</footer>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
