@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#111315">
     <meta name="description" content="Bản đồ số 16 tổ dân phố phường Phượng Sơn, tỉnh Bắc Ninh.">
     <title>Bản đồ số phường Phượng Sơn</title>
-    <link rel="stylesheet" href="./styles.css?v=20260722-4">
+    <link rel="stylesheet" href="./styles.css?v=20260722-5">
   </head>
   <body>
     <header class="masthead">
@@ -21,7 +21,7 @@
       </div>
     </header>
 
-    <main class="map-app" id="map-app">
+    <main class="map-app boundary-off poi-hidden ocop-hidden agriculture-hidden heritage-hidden" id="map-app">
       <div class="drum-background" aria-hidden="true">
         <img src="./trong-dong-phuong-son.png" alt="">
       </div>
@@ -69,18 +69,28 @@
           <div class="selection-halo" id="selection-halo" aria-hidden="true"></div>
           <div class="map-labels" id="map-labels"></div>
           <div class="map-points" id="map-points"></div>
+          <div class="special-points" id="special-points"></div>
         </div>
       </section>
 
       <div class="map-tools" aria-label="Công cụ bản đồ">
-        <button class="map-tool active" id="boundary-toggle" type="button" title="Làm nổi bật địa giới Phượng Sơn" aria-pressed="true">
+        <button class="map-tool" id="boundary-toggle" type="button" title="Hiển thị hoặc ẩn địa giới" data-label="Địa giới" aria-pressed="false">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.5 8.7 8 10 4.5-1.3 8-5 8-10V7l-8-4Zm0 2.2 6 3v3.8c0 3.8-2.5 6.7-6 7.9-3.5-1.2-6-4.1-6-7.9V8.2l6-3Z"></path></svg>
         </button>
-        <button class="map-tool labels-on" id="labels-toggle" type="button" title="Hiển thị hoặc ẩn tên TDP" aria-pressed="true">
+        <button class="map-tool labels-on" id="labels-toggle" type="button" title="Hiển thị hoặc ẩn tên TDP" data-label="Tên TDP" aria-pressed="true">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="4"></circle></svg>
         </button>
-        <button class="map-tool poi-on" id="poi-toggle" type="button" title="Hiển thị hoặc ẩn nhà văn hóa, điểm công cộng" aria-pressed="true">
+        <button class="map-tool" id="poi-toggle" type="button" title="Hiển thị hoặc ẩn nhà văn hóa, điểm công cộng" data-label="Nhà văn hóa" aria-pressed="false">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M6 21V9l6-4 6 4v12M9 21v-6h6v6M8 11h2M14 11h2"></path></svg>
+        </button>
+        <button class="map-tool" id="ocop-toggle" type="button" title="Hiển thị hoặc ẩn 14 sản phẩm OCOP" data-label="OCOP" aria-pressed="false">
+          <span class="tool-abbr" aria-hidden="true">OC</span>
+        </button>
+        <button class="map-tool" id="agriculture-toggle" type="button" title="Hiển thị hoặc ẩn vùng trồng và cơ sở đóng gói" data-label="Vùng trồng" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 4.5C13 4.8 8.5 7.8 7.2 13.2c3.1-2.7 6.1-3.8 9.1-4.1-4.4 1.8-7.2 4.5-8.7 8.3M5 20c.2-3.3.8-6 2.2-8"></path></svg>
+        </button>
+        <button class="map-tool" id="heritage-toggle" type="button" title="Hiển thị hoặc ẩn 18 hồ sơ di tích đang đối chiếu" data-label="Di tích" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18L12 4 3 9Zm2 2v7m4-7v7m6-7v7m4-7v7M3 20h18"></path></svg>
         </button>
       </div>
 
@@ -94,9 +104,10 @@
         <div class="detail-content" id="detail-content"></div>
       </aside>
 
-      <div class="map-legend"><span><i class="legend-house"></i> Nhà văn hóa đã đối chiếu</span><span><i class="legend-public"></i> Điểm công cộng</span></div>
+      <div class="map-legend"><span class="legend-hint">Điểm có số = nhóm hồ sơ theo TDP; bấm để xem</span><span class="legend-poi"><i class="legend-house"></i> Nhà văn hóa</span><span class="legend-ocop"><i></i> OCOP</span><span class="legend-agriculture"><i></i> Vùng trồng/CSDG</span><span class="legend-heritage"><i></i> Di tích</span></div>
       <div class="map-credit">PHƯỜNG PHƯỢNG SƠN · NGHỊ QUYẾT 25/NQ-HĐND · CẬP NHẬT 22/07/2026</div>
     </main>
-    <script src="./app.js?v=20260722-2"></script>
+    <script src="./data-special.js?v=20260722-1"></script>
+    <script src="./app.js?v=20260722-3"></script>
   </body>
 </html>
