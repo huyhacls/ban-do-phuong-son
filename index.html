@@ -2,46 +2,83 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Bản đồ tra cứu thông tin 16 tổ dân phố phường Phượng Sơn, tỉnh Bắc Ninh.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+    <meta name="theme-color" content="#111315">
+    <meta name="description" content="Bản đồ số 16 tổ dân phố phường Phượng Sơn, tỉnh Bắc Ninh.">
     <title>Bản đồ số phường Phượng Sơn</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <main>
-      <header class="topbar">
-        <div class="brand-mark" aria-hidden="true">PS</div>
-        <div>
-          <p class="eyebrow">PHƯỜNG PHƯỢNG SƠN · TỈNH BẮC NINH</p>
-          <h1>Bản đồ số 16 tổ dân phố</h1>
-        </div>
-        <div class="status"><span></span>Dữ liệu đang hoàn thiện</div>
-      </header>
+    <header class="masthead">
+      <div class="masthead-inner">
+        <a class="wordmark" href="./" aria-label="Bản đồ số phường Phượng Sơn">Phượng Sơn</a>
+        <div class="masthead-slogan">Chuyên trang bản đồ số 16 tổ dân phố phường Phượng Sơn</div>
+      </div>
+    </header>
 
-      <section class="workspace">
-        <aside class="sidebar" id="sidebar">
-          <div class="side-heading">
-            <div><strong>Danh sách tổ dân phố</strong><small>Chọn một tổ để xem thông tin</small></div>
-            <button class="close-list" id="close-list" type="button" aria-label="Đóng danh sách">×</button>
-          </div>
-          <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm TDP cũ hoặc mới…" aria-label="Tìm tổ dân phố"></label>
-          <div class="ward-list" id="ward-list"></div>
-        </aside>
+    <main class="map-app" id="map-app">
+      <div class="drum-background" aria-hidden="true">
+        <img src="./trong-dong-phuong-son.png" alt="">
+      </div>
 
-        <div class="map-column">
-          <div class="mobile-actions"><button id="open-list" type="button">☰ Danh sách 16 TDP</button><span>Chạm tên trên bản đồ để xem</span></div>
-          <div class="map-card">
-            <div class="map-caption"><div><b>Bản đồ địa giới dự kiến sau sắp xếp</b><span>Sơ đồ tương đối, không dùng để xác định ranh giới đất đai</span></div><span class="north">B ↑</span></div>
-            <div class="map-stage">
-              <img src="./map-phuong-son.png" alt="Bản đồ 16 tổ dân phố phường Phượng Sơn">
-              <div id="map-labels"></div>
-            </div>
-          </div>
+      <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Mở danh sách tổ dân phố">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+      <div class="mobile-overlay" id="mobile-overlay"></div>
+
+      <aside class="sidebar" id="sidebar" aria-label="Thông tin phường Phượng Sơn">
+        <div class="sidebar-header">
+          <button class="notice-logo" id="expand-sidebar" type="button" aria-label="Mở bảng thông tin">
+            <img src="./thong-bao.svg" alt="">
+            <span></span>
+          </button>
+          <div class="sidebar-title"><h1>Phường Phượng Sơn</h1><small>Tỉnh Bắc Ninh</small></div>
+          <button class="collapse-sidebar" id="collapse-sidebar" type="button" aria-label="Thu gọn bảng thông tin">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg>
+          </button>
         </div>
 
-        <aside class="detail-card" id="detail-card" aria-live="polite"></aside>
+        <div class="city-info">
+          <div class="city-info-item"><span>Diện tích:</span><strong>78,84 km²</strong></div>
+          <div class="city-info-item"><span>Dân số:</span><strong>41.365 người</strong></div>
+          <div class="city-info-item"><span>Đơn vị:</span><strong>16 tổ dân phố</strong></div>
+        </div>
+
+        <div class="search-section">
+          <h2>Thông tin các tổ dân phố</h2>
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Tìm kiếm TDP cũ, mới…" aria-label="Tìm kiếm tổ dân phố"></label>
+        </div>
+        <div class="ward-list" id="ward-list"></div>
+      </aside>
+
+      <section class="map-viewport" id="map-viewport" aria-label="Bản đồ 16 tổ dân phố phường Phượng Sơn">
+        <div class="map-world" id="map-world">
+          <img class="map-art" src="./map-phuong-son.png" alt="Sơ đồ 16 tổ dân phố phường Phượng Sơn" draggable="false">
+          <div class="selection-halo" id="selection-halo" aria-hidden="true"></div>
+          <div class="map-labels" id="map-labels"></div>
+        </div>
       </section>
-      <footer>© 2026 Phường Phượng Sơn · Bản đồ thông tin cộng đồng</footer>
+
+      <div class="map-tools" aria-label="Công cụ bản đồ">
+        <button class="map-tool active" id="boundary-toggle" type="button" title="Làm nổi bật địa giới Phượng Sơn" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.5 8.7 8 10 4.5-1.3 8-5 8-10V7l-8-4Zm0 2.2 6 3v3.8c0 3.8-2.5 6.7-6 7.9-3.5-1.2-6-4.1-6-7.9V8.2l6-3Z"></path></svg>
+        </button>
+        <button class="map-tool labels-on" id="labels-toggle" type="button" title="Hiển thị hoặc ẩn tên TDP" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+        </button>
+      </div>
+
+      <div class="map-hint" id="map-hint">Kéo để di chuyển · Cuộn để phóng to</div>
+
+      <aside class="detail-panel" id="detail-panel" aria-live="polite" aria-label="Thông tin tổ dân phố">
+        <div class="detail-header">
+          <h2 id="detail-title"></h2>
+          <button id="close-detail" type="button" aria-label="Đóng thông tin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+        </div>
+        <div class="detail-content" id="detail-content"></div>
+      </aside>
+
+      <div class="map-credit">PHƯỜNG PHƯỢNG SƠN · BẢN ĐỒ THÔNG TIN CỘNG ĐỒNG</div>
     </main>
     <script src="./app.js"></script>
   </body>
