@@ -17,9 +17,32 @@ Cập nhật: 22/07/2026.
 
 ## Trưởng Ban Công tác Mặt trận
 
-- Tên và số điện thoại lấy từ file “Danh sách trưởng ban CTMT.docx” do phường cung cấp.
-- Có số điện thoại của 10/16 Trưởng Ban CTMT; 6 trường hợp chưa có số được ghi rõ “đề nghị bổ sung”.
+- Tên và số điện thoại lấy từ file “Danh sách trưởng ban CTMT 2026 - 2030(1).docx” do phường cung cấp.
+- Đã cập nhật đủ tên và số điện thoại của 16/16 Trưởng Ban CTMT.
 - Thông tin công khai trên bản đồ chỉ gồm họ tên và số điện thoại; không công khai năm sinh, dân tộc hoặc trình độ.
+
+## Sản phẩm OCOP
+
+- Nguồn chính: file “O cốp Phượng Sơn 2026.xlsx” do phường cung cấp.
+- Công khai 14 sản phẩm; không đưa sản phẩm rượu theo yêu cầu của phường.
+- Công khai đầy đủ tên sản phẩm, chủ thể, người đại diện, số điện thoại và năm có trong file.
+- Địa bàn của Bầu Tiên, Ổi Đồng Nga và Ổi Thu Quế được đối chiếu thêm từ nguồn báo chí, cổng du lịch và cơ sở dữ liệu OCOP công khai.
+- Hồ sơ chưa xác định được TDP được gom vào nhóm “Chưa xác định TDP”, không tự gán tọa độ.
+
+## Vùng trồng và cơ sở đóng gói
+
+- Nguồn chính: file “các vùng trồng, csdg phường phượng sơn và biên sơn_1.xlsx” do phường cung cấp.
+- Đã loại 03 dòng trùng hoàn toàn trong bảng chính, giữ 26 mã khác nhau.
+- Hiển thị 26 mã vùng chính, 04 mã LMC-BIO tại TDP Ải và 05 cơ sở đóng gói, tổng cộng 35 hồ sơ.
+- Các dòng nguồn chỉ ghi chung “Phượng Sơn/Quý Sơn/Mỹ An” được ghi là “Phượng Sơn cũ/Quý Sơn cũ/Mỹ An cũ” và đánh dấu đề nghị bổ sung TDP mới.
+- Số trong điểm bản đồ là số hồ sơ được gom theo TDP; bấm điểm để mở danh sách chi tiết.
+
+## Di tích
+
+- Lớp dữ liệu đang thể hiện 18 địa điểm để tiếp tục đối chiếu.
+- 09 địa điểm đã tìm được nguồn công khai về xếp hạng cấp tỉnh hoặc quyết định xếp hạng; 09 địa điểm còn lại là địa điểm tín ngưỡng có trên Google Maps/nguồn công khai nhưng cần phường đối chiếu danh mục 18 di tích cấp tỉnh chính thức.
+- Không coi tọa độ Google Maps là tọa độ đo đạc; các TDP cần xác nhận cổng chính hoặc vị trí đại diện của di tích.
+- Nguồn đối chiếu gồm Quyết định 2002/QĐ-UBND năm 2012, thông tin xếp hạng năm 2019, Đề án bảo vệ di tích khảo cổ năm 2023 và các bài viết du lịch địa phương.
 
 ## Nhà văn hóa và điểm công cộng
 
