@@ -93,6 +93,17 @@ const formatNumber = (value) => new Intl.NumberFormat("vi-VN").format(value);
 const isMobile = () => window.innerWidth <= 768;
 const mapsPointUrl = (point) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${point.lat},${point.lng}`)}`;
 const mapsSearchUrl = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+const labelsToggle = document.querySelector("#labels-toggle");
+let mobileLayout = isMobile();
+let labelsUserChanged = false;
+
+function setLabelsVisible(visible){
+  app.classList.toggle("labels-hidden",!visible);
+  labelsToggle.classList.toggle("labels-on",visible);
+  labelsToggle.setAttribute("aria-pressed",String(visible));
+}
+
+setLabelsVisible(!mobileLayout);
 
 function geoToMap(lat,lng){
   const x=geoFrame.xMin+((lng-geoFrame.west)/(geoFrame.east-geoFrame.west))*(geoFrame.xMax-geoFrame.xMin);
@@ -107,7 +118,8 @@ function renderList(query=""){
 }
 
 function renderLabels(){
-  labels.innerHTML=wards.map((ward)=>`<button class="map-label ${selectedId===ward.id?"selected":""}" type="button" data-ward="${ward.id}" style="left:${ward.x}%;top:${ward.y}%" aria-label="Xem TDP ${escapeHtml(ward.name)}">TDP ${escapeHtml(ward.name)}</button>`).join("");
+  const compact=mobileLayout;
+  labels.innerHTML=wards.map((ward)=>`<button class="map-label ${selectedId===ward.id?"selected":""}" type="button" data-ward="${ward.id}" style="left:${ward.x}%;top:${ward.y}%" aria-label="Xem TDP ${escapeHtml(ward.name)}">${compact?escapeHtml(ward.name):`TDP ${escapeHtml(ward.name)}`}</button>`).join("");
 }
 
 function renderPoints(){
@@ -331,7 +343,7 @@ document.querySelector("#expand-sidebar").addEventListener("click",expandSidebar
 overlay.addEventListener("click",closeSidebar);
 document.querySelector("#close-detail").addEventListener("click",closeDetail);
 document.querySelector("#boundary-toggle").addEventListener("click",(event)=>{const button=event.currentTarget;app.classList.toggle("boundary-off");const active=!app.classList.contains("boundary-off");button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active))});
-document.querySelector("#labels-toggle").addEventListener("click",(event)=>{const button=event.currentTarget;app.classList.toggle("labels-hidden");const active=!app.classList.contains("labels-hidden");button.classList.toggle("labels-on",active);button.setAttribute("aria-pressed",String(active))});
+labelsToggle.addEventListener("click",()=>{labelsUserChanged=true;setLabelsVisible(app.classList.contains("labels-hidden"))});
 document.querySelector("#poi-toggle").addEventListener("click",(event)=>{const button=event.currentTarget;app.classList.toggle("poi-hidden");const active=!app.classList.contains("poi-hidden");button.classList.toggle("poi-on",active);button.setAttribute("aria-pressed",String(active))});
 document.querySelector("#ocop-toggle").addEventListener("click",(event)=>{const button=event.currentTarget;app.classList.toggle("ocop-hidden");const active=!app.classList.contains("ocop-hidden");button.classList.toggle("ocop-on",active);button.setAttribute("aria-pressed",String(active))});
 document.querySelector("#agriculture-toggle").addEventListener("click",(event)=>{const button=event.currentTarget;app.classList.toggle("agriculture-hidden");const active=!app.classList.contains("agriculture-hidden");button.classList.toggle("agriculture-on",active);button.setAttribute("aria-pressed",String(active))});
@@ -343,7 +355,7 @@ viewport.addEventListener("pointerdown",(event)=>{if(event.target.closest("butto
 viewport.addEventListener("pointermove",(event)=>{if(!drag||drag.id!==event.pointerId)return;mapState.x=drag.startX+event.clientX-drag.x;mapState.y=drag.startY+event.clientY-drag.y;applyMapTransform()});
 function endDrag(event){if(!drag||drag.id!==event.pointerId)return;drag=null;viewport.classList.remove("dragging")}
 viewport.addEventListener("pointerup",endDrag);viewport.addEventListener("pointercancel",endDrag);
-window.addEventListener("resize",()=>{if(!isMobile()){sidebar.classList.remove("active");overlay.classList.remove("active")}else{sidebar.classList.remove("collapsed")}mapState={scale:1,x:0,y:0};applyMapTransform()});
+window.addEventListener("resize",()=>{const nowMobile=isMobile();if(!nowMobile){sidebar.classList.remove("active");overlay.classList.remove("active")}else{sidebar.classList.remove("collapsed")}if(nowMobile!==mobileLayout){mobileLayout=nowMobile;if(!labelsUserChanged)setLabelsVisible(!mobileLayout);renderLabels()}mapState={scale:1,x:0,y:0};applyMapTransform()});
 document.addEventListener("keydown",(event)=>{if(event.key==="Escape"){closeDetail();closeSidebar()}});
 window.setTimeout(()=>document.querySelector("#map-hint").classList.add("hidden"),4200);
 
